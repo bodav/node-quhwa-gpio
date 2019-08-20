@@ -1,6 +1,6 @@
 version: "3"
 services:
-  homebridge:
+  quhwa-gpio:
     build: https://github.com/bodav/node-quhwa-gpio.git
     network_mode: host
     volumes:
