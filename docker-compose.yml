@@ -1,0 +1,10 @@
+version: "3"
+services:
+  homebridge:
+    build: https://github.com/bodav/node-quhwa-gpio.git
+    network_mode: host
+    volumes:
+      - /sys:/sys
+    environment:
+      - GPIOPIN=7
+      - "WEBHOOKURL=http://localhost:51828/?accessoryId=doorbellSensor&state=true"
