@@ -1,12 +1,14 @@
 const gpio = require("rpi-gpio");
 const axios = require('axios');
 
-const pin = 7;
+const pin = process.env.GPIOPIN;
 let interruptThrottle = false;
 let timeoutFunc = null;
 const timeoutReset = 5000;
 
-const webhook = "http://localhost:51828/?accessoryId=doorbellSensor&state=true";
+const webhook = process.env.WEBHOOKURL;
+
+console.log("Settings up gpio listener on pin: " + pin);
 
 gpio.setup(pin, gpio.DIR_IN, gpio.EDGE_RISING, function (err) {
     if (err != undefined) {
@@ -25,6 +27,7 @@ gpio.setup(pin, gpio.DIR_IN, gpio.EDGE_RISING, function (err) {
     
             if (timeoutFunc) clearTimeout(timeoutFunc);
     
+            console.log("HTTP GET: " + webhook);
             axios.get(webhook)
                 .then(function (response) {
                     console.log("Webhook response status: " + response.status);

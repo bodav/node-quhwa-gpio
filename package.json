@@ -4,14 +4,16 @@
   "description": "Listen to events from a modified quhwa doorbell connected via gpio",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "env WEBHOOKS='http://localhost:1234/test,http://localhost:4567/test&t=sdf' nodemon app.js"
+    "start": "node app.js"
   },
   "author": "bodav",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bodav/node-quhwa-gpio.git"
+  },
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.0",
-    "express": "^4.17.1",
     "rpi-gpio": "^2.1.3"
   }
 }
