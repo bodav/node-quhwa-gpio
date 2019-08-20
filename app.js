@@ -30,7 +30,7 @@ function gpioChange(channel, val)
         timeoutFunc = setTimeout(function () {
             console.log("Resetting gpio change event throttle flag");
             bellDetected = false;
-            that.timeout = null;
+            timeoutFunc = null;
         }, timeoutReset);
     }
 }
