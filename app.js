@@ -1,4 +1,4 @@
-
+const util = require("util");
 const gpio = require("rpi-gpio");
 const axios = require('axios');
 
@@ -31,7 +31,8 @@ function gpioChange(channel, val) {
 
         axios.get(webhook)
             .then(function (response) {
-                console.log("Webhook response: " + response);
+                console.log("Webhook response:");
+                console.log(util.inspect(response));
             })
             .catch(function (error) {
                 console.log("Webhook error: " + error);
