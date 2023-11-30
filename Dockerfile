@@ -1,4 +1,4 @@
-FROM node:10-buster
+FROM node:alpine
 WORKDIR /app
 COPY package.json /app
 RUN npm install
