@@ -4,6 +4,8 @@ Listen to events from a modified quhwa doorbell connected via gpio
 
 docker run -it -v /sys:/sys --network host node-quhwa-gpio:latest
 
+![quhwa](QH-09BCE.jpg)
+
 # Compose
 
 ```
